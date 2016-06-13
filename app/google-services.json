@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "61061753680",
+    "firebase_url": "https://alicechats.firebaseio.com",
+    "project_id": "project-5067250713479684216",
+    "storage_bucket": "project-5067250713479684216.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61061753680:android:d6d22e11f0d9d027",
+        "android_client_info": {
+          "package_name": "com.example.alice.androidchat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61061753680-v29ufb1ookkj3p0rkn3c8o515potd3ah.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2WgufUpenrD0lyxHVa-rUeiep3O3DB1g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

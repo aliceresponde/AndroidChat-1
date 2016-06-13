@@ -18,7 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".contactslist.ContactListActivity"></activity>
+
+        <activity android:name=".contactslist.ContactListActivity">
+        </activity>
     </application>
 
 </manifest>

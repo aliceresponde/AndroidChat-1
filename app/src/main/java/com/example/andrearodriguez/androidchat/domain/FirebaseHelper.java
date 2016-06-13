@@ -1,5 +1,6 @@
 package com.example.andrearodriguez.androidchat.domain;
 
+import com.example.andrearodriguez.androidchat.entities.User;
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
@@ -18,7 +19,9 @@ public class FirebaseHelper {
     private final static String CHAT_PATH = "chats";
     private final static String USERS_PATH = "users";
     private final static String CONTACTS_PATH = "contacts";
-    private final static String FIREBASE_URL = "https://androidchatapp-6cb8c.firebaseio.com/";
+    //    private final static String FIREBASE_URL = "https://androidchatapp-6cb8c.firebaseio.com/";
+//        private final static String FIREBASE_URL = "https://androidchat-9c9bd.firebaseio.com/";
+    private final static String FIREBASE_URL = "https://alicechats.firebaseio.com/";
 
     private static class SingletonHolder {
         private static final FirebaseHelper INSTANCE = new FirebaseHelper();
@@ -91,7 +94,7 @@ public class FirebaseHelper {
     }
 
     public void signOff(){
-        notifyContactsOfConnectionChange(false, true);
+        notifyContactsOfConnectionChange(User.OFFLINE, true);
 
     }
 

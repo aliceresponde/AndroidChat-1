@@ -16,6 +16,7 @@ public class LoginPresenterImpl implements LogingPresenter{
     private EvenBus eventBus;
     private LoginView loginView;
     private LoginInteractor loginInteractor;
+    private static String TAG  = LoginPresenterImpl.class.getSimpleName();
 
     public LoginPresenterImpl(LoginView loginView) {
         this.loginView = loginView;
@@ -71,6 +72,7 @@ public class LoginPresenterImpl implements LogingPresenter{
     @Override
     public void onEventMainThread(LoginEvent event) {
         Log.e("LoginPresenterImpl","onEventMainThread");
+        Log.e( TAG, "onEventMainThread event"  +  event.getEventType() + " message --> " + event.getErrorMessage() );
         switch (event.getEventType()){
             case LoginEvent.onSignInSuccess:
                 onSignInSucces();
@@ -94,7 +96,6 @@ public class LoginPresenterImpl implements LogingPresenter{
         if(loginView != null){
             loginView.hideProgress();
             loginView.enableInputs();
-
         }
         Log.e("LoginPresenterImpl","onFailedRecoverSession");
     }

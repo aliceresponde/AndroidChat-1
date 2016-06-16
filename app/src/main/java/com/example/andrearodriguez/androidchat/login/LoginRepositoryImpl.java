@@ -69,33 +69,7 @@ public class LoginRepositoryImpl implements LoginRepository {
 
                 Log.e(TAG ,"onAuthenticated" );
 
-                myUserReference = helper.getMyUserReference();
-                myUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Log.e(TAG ,"onAuthenticated->onDataChange" );
-
-
-                        User currentUser  = dataSnapshot.getValue(User.class);
-
-                        if (currentUser == null){// No tengo usuario registrado
-                            String email = helper.getAuthUserEmail();
-                            if ( email != null) {
-                                currentUser = new User();
-                                myUserReference.setValue(currentUser);
-                            }
-                        }
-
-                        helper.changeUserConnectionStatus(User.ONLINE);
-                        postEvent(LoginEvent.onSignInSuccess);
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-                        Log.e(TAG ,"onAuthenticated -->onCancelled" );
-
-                    }
-                });
+                initSignIn();
 
             }
 
@@ -107,11 +81,48 @@ public class LoginRepositoryImpl implements LoginRepository {
         });
     }
 
+    private void initSignIn() {
+        myUserReference = helper.getMyUserReference();
+        myUserReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Log.e(TAG ,"onAuthenticated->onDataChange" );
+                User currentUser  = dataSnapshot.getValue(User.class);
+
+                if (currentUser == null){// No tengo usuario registrado
+                    registerNewUser();
+                }
+
+                helper.changeUserConnectionStatus(User.ONLINE);
+                postEvent(LoginEvent.onSignInSuccess);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                Log.e(TAG ,"onAuthenticated -->onCancelled" );
+
+            }
+        });
+    }
+
+    private void registerNewUser() {
+        User currentUser;
+        String email = helper.getAuthUserEmail();
+        if ( email != null) {
+            currentUser = new User();
+            currentUser.setEmail(email);
+            myUserReference.setValue(currentUser);
+        }
+    }
+
     @Override
     public void checkSession() {
         Log.e(TAG, "checkSession");
-
-        postEvent(LoginEvent.onFailedRecoverSession);
+        if (datareference.getAuth() != null){
+            initSignIn();
+        }else{
+            postEvent(LoginEvent.onFailedRecoverSession);
+        }
 
     }
 

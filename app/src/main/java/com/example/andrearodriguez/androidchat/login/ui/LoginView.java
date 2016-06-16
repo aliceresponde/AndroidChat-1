@@ -1,4 +1,4 @@
-package com.example.andrearodriguez.androidchat.login;
+package com.example.andrearodriguez.androidchat.login.ui;
 
 /**
  * Created by andrearodriguez on 6/9/16.

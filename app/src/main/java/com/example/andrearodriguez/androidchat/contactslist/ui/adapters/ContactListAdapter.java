@@ -18,6 +18,9 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by alice on 6/16/16.
+ * Adapter para cada usuario contacto
+ * Recibe la interface onItemClickListener , para el manejo del onClick y del onLongClick
+ * Recibe un List<users> llamado contactList que es el dataset
  */
 
 public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.ViewHolder> {
@@ -72,6 +75,11 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         return contactList.size();
     }
 
+    /**
+     * Define cada elemento del row, vinculando los que vienen del layout del row
+     * Requiero un atributo extra, para settear y manejar la interface que permitira hacer click
+     * sobre cada row. Al setClickListener (User, OnItemClickListener)
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imgAvatar)
         CircleImageView imgAvatar;
@@ -104,7 +112,6 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
                 }
             });
 
-            }
         }
     }
 }

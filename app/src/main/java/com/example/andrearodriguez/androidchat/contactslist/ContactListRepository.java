@@ -5,6 +5,8 @@ package com.example.andrearodriguez.androidchat.contactslist;
  */
 
 public interface ContactListRepository {
+
+
     //session
     void signOff();
 
@@ -13,7 +15,7 @@ public interface ContactListRepository {
     void changeConnectionStatus(boolean online);
 
     //interactor
-    void subscribe();
+    void subscribeToContactListEvents();
 
     void unsubscribe();
 

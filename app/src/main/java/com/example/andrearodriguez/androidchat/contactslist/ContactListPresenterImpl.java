@@ -88,7 +88,7 @@ public class ContactListPresenterImpl implements ContactListPresenter {
     /**
      * accciones a las q la vista debe reaccionar view.*
      * Nota:  el metodo onEventMainThread llamado en el presenter , para los casos de los eventos
-     *        requiere uns @subscribe  EventBus 3.0.0
+     *        requiere uns @subscribeToContactListEvents  EventBus 3.0.0
      * @param event
      */
     @Override

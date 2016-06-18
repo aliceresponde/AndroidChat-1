@@ -2,6 +2,7 @@ package com.example.andrearodriguez.androidchat.contactslist.ui.adapters;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static com.example.andrearodriguez.androidchat.domain.AvatarHelper.getAvatarUL;
 
 /**
  * Created by alice on 6/16/16.
@@ -61,13 +64,14 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         int color = online ? Color.GREEN : Color.RED ;
 
         String email = user.getEmail();
+        Log.i("Email", email);
         holder.txtUser.setText(email);
 
         holder.txtStatus.setText(status);
         holder.txtStatus.setTextColor(color);
 
         //metodo para cargar la imagen desde url, en el circleImageView
-        imageLoader.load(holder.imgAvatar , "");
+        imageLoader.load(holder.imgAvatar , getAvatarUL(email));
 
 
     }

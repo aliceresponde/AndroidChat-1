@@ -8,6 +8,7 @@ import com.bumptech.glide.RequestManager;
 
 /**
  * Created by alice on 6/17/16.
+ * Uso glide para settear una imagen desde url sobre un imageView
  */
 
 public class GlideImageLoader implements ImageLoader {

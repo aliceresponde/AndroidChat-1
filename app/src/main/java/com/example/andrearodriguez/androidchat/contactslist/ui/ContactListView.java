@@ -9,5 +9,5 @@ import com.example.andrearodriguez.androidchat.entities.User;
 public interface ContactListView {
     void onContactAdded(User user);
     void onContactChanged(User user);
-    void onContactDeleted(User user);
+    void onContactRemoved(User user);
 }

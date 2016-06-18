@@ -101,7 +101,7 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
     }
 
     @Override
-    public void onContactDeleted(User user) {
+    public void onContactRemoved(User user) {
 
     }
 

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.andrearodriguez.androidchat.R;
 import com.example.andrearodriguez.androidchat.entities.User;
+import com.example.andrearodriguez.androidchat.lib.ImageLoader;
 
 import java.util.List;
 
@@ -27,10 +28,10 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
 
 
     private List<User> contactList;
-    private ImageLoading imageLoader;
+    private ImageLoader imageLoader;
     private OnItemClickListener onItemClickListener;
 
-    public ContactListAdapter(List<User> contactList, ImageLoading imageLoading, OnItemClickListener onItemClickListener) {
+    public ContactListAdapter(List<User> contactList, ImageLoader imageLoading, OnItemClickListener onItemClickListener) {
         this.contactList = contactList;
         this.imageLoader = imageLoading;
         this.onItemClickListener = onItemClickListener;
@@ -59,12 +60,13 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         String status = online ? "online" : "offline" ;
         int color = online ? Color.GREEN : Color.RED ;
 
-        holder.txtUser.setText(user.getEmail());
+        String email = user.getEmail();
+        holder.txtUser.setText(email);
 
         holder.txtStatus.setText(status);
         holder.txtStatus.setTextColor(color);
 
-        //metodo para cargar la imagen desde url
+        //metodo para cargar la imagen desde url, en el circleImageView
         imageLoader.load(holder.imgAvatar , "");
 
 

@@ -81,6 +81,28 @@ public class ContactListAdapter extends RecyclerView.Adapter<ContactListAdapter.
         return contactList.size();
     }
 
+    public void add(User user) {
+        if (!contactList.contains(user)){
+            contactList.add(user);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void update(User user) {
+        if (contactList.contains(user)){
+            int userPos  = contactList.indexOf(user);
+            contactList.set(userPos, user);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void remove(User user) {
+        if (contactList.contains(user)){
+            contactList.remove(user);
+            notifyDataSetChanged();
+        }
+    }
+
     /**
      * Define cada elemento del row, vinculando los que vienen del layout del row
      * Requiero un atributo extra, para settear y manejar la interface que permitira hacer click

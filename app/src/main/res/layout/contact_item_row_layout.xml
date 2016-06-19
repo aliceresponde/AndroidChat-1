@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="5dp"
     >
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -35,6 +34,13 @@
         android:layout_below="@+id/txtUser"
         android:text="Medium"
         android:textAppearance="?android:textAppearanceMedium"
+        />
+    <View
+        android:layout_marginTop="4dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/txtStatus"
         />
 
 

@@ -19,8 +19,6 @@ public class FirebaseHelper {
     private final static String CHAT_PATH = "chats";
     private final static String USERS_PATH = "users";
     private final static String CONTACTS_PATH = "contacts";
-    //    private final static String FIREBASE_URL = "https://androidchatapp-6cb8c.firebaseio.com/";
-//        private final static String FIREBASE_URL = "https://androidchat-9c9bd.firebaseio.com/";
     private final static String FIREBASE_URL = "https://alicechats.firebaseio.com/";
 
     private static class SingletonHolder {
@@ -59,16 +57,19 @@ public class FirebaseHelper {
     public Firebase getMyUserReference(){
         return getUserReference(getAuthUserEmail());
     }
+
     public Firebase getContactsReference(String email){
         return getUserReference(email).child(CONTACTS_PATH);
     }
     public Firebase getMyContactsReference(){
         return getContactsReference(getAuthUserEmail());
     }
+
     public Firebase getOneContactReference(String mainEmail, String childEmail){
         String childKey = childEmail.replace(".","_");
         return getUserReference(mainEmail).child(CONTACTS_PATH).child(childKey);
     }
+
     public Firebase getChatsReferrence (String receiver){
         String keySender = getAuthUserEmail().replace(".","_");
         String keyReceiver = receiver.replace(".","_");
@@ -79,6 +80,7 @@ public class FirebaseHelper {
         }
         return dataReference.getRoot().child(CHAT_PATH).child(keyChat);
     }
+
     public void changeUserConnectionStatus (boolean online){
         if(getMyUserReference() != null){
             Map<String, Object> updates = new HashMap<String, Object>();

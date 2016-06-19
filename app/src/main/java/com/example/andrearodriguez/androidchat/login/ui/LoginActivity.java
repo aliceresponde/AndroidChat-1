@@ -22,7 +22,7 @@ import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity implements LoginView {
 
-    @BindView(R.id.txtEmail)
+    @BindView(R.id.inputEmail)
     EditText txtEmail;
     @BindView(R.id.txtPassword)
     EditText txtPassword;

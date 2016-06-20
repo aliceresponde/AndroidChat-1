@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -125,6 +126,7 @@ public class ContactListActivity extends AppCompatActivity implements ContactLis
     @OnClick(R.id.fav)
     public void addContact(){
         //muestro dialogFragment
+        Log.i("clickAdd" , "floatBTN");
         new AddContactFragment().show( getSupportFragmentManager() , getString(R.string.addcontact_message_title));
     }
 

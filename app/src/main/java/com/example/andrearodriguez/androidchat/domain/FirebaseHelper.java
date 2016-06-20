@@ -46,7 +46,8 @@ public class FirebaseHelper {
         }
         return email;
     }
-    private Firebase getUserReference(String email){
+    
+    public Firebase getUserReference(String email){
         Firebase userReference = null;
         if (email != null){
             String emailKey = email.replace(".","_");

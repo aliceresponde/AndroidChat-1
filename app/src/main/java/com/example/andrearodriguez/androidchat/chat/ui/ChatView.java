@@ -1,4 +1,4 @@
-package com.example.andrearodriguez.androidchat.chat;
+package com.example.andrearodriguez.androidchat.chat.ui;
 
 import com.example.andrearodriguez.androidchat.entities.ChatMessage;
 

@@ -1,4 +1,4 @@
-package com.example.andrearodriguez.androidchat.chat;
+package com.example.andrearodriguez.androidchat.chat.ui;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -7,23 +7,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.andrearodriguez.androidchat.R;
-import com.example.andrearodriguez.androidchat.chat.adapters.ChatAdapter;
+import com.example.andrearodriguez.androidchat.chat.ChatPresenter;
+import com.example.andrearodriguez.androidchat.chat.ChatPresenterImpl;
+import com.example.andrearodriguez.androidchat.chat.ui.adapters.ChatAdapter;
 import com.example.andrearodriguez.androidchat.domain.AvatarHelper;
 import com.example.andrearodriguez.androidchat.entities.ChatMessage;
 import com.example.andrearodriguez.androidchat.lib.GlideImageLoader;
 import com.example.andrearodriguez.androidchat.lib.ImageLoader;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ChatActivity extends AppCompatActivity implements  ChatView{
+public class ChatActivity extends AppCompatActivity implements ChatView {
 
     @BindView(R.id.imgAvatar)
     CircleImageView imgAvatar;
@@ -43,7 +50,7 @@ public class ChatActivity extends AppCompatActivity implements  ChatView{
     public final static String EMAIL_KEY = "email";
     public final static String ONLINE_KEY = "online";
 
-    private  ChatPresenter presenter ;
+    private ChatPresenter presenter ;
     private ChatAdapter adapter;
 
     @Override
@@ -55,7 +62,7 @@ public class ChatActivity extends AppCompatActivity implements  ChatView{
         setupAdapter();
         setupRecyclerView();
 
-        presenter = new  ChatPresenterImpl(this);
+        presenter = new ChatPresenterImpl(this);
         presenter.onCreate();
 
 
@@ -78,12 +85,29 @@ public class ChatActivity extends AppCompatActivity implements  ChatView{
         imageLoader.load(imgAvatar , AvatarHelper.getAvatarUL(recipient));
 
     }
-
-    private void setupAdapter() {
-    }
-
     private void setupRecyclerView() {
         messagesRecyclerView.setLayoutManager( new LinearLayoutManager(this));
+    }
+
+    private void setupAdapter() {
+//        ChatMessage chatMessage1 = new ChatMessage();
+//        ChatMessage chatMessage2 = new ChatMessage();
+//
+//        chatMessage1.setMsg("Hola");
+//        chatMessage2.setMsg("oli");
+//
+//        chatMessage1.setSemdByMe(true);
+//        chatMessage2.setSemdByMe(false);
+//
+//        List<ChatMessage> example  = new ArrayList<ChatMessage>();
+//        example.add(chatMessage1);
+//        example.add(chatMessage2);
+//
+//        adapter = new ChatAdapter( this, (ArrayList<ChatMessage>) example);
+        adapter = new ChatAdapter(this, new ArrayList<ChatMessage>());
+        messagesRecyclerView.setAdapter(adapter);
+
+        Log.i("dataSet", adapter.getItemCount() +"");
     }
 
     @Override

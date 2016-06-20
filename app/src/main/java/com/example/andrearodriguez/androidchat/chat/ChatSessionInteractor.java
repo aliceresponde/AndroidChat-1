@@ -6,6 +6,4 @@ package com.example.andrearodriguez.androidchat.chat;
 
 public interface ChatSessionInteractor {
     void  changeConnectionStatus(boolean online); //cambio de pantalla
-
-
 }

@@ -9,11 +9,10 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.andrearodriguez.androidchat.R;
 import com.example.andrearodriguez.androidchat.addcontact.iu.AddContactFragment;
-import com.example.andrearodriguez.androidchat.chat.ChatActivity;
+import com.example.andrearodriguez.androidchat.chat.ui.ChatActivity;
 import com.example.andrearodriguez.androidchat.contactslist.ContactListPresenter;
 import com.example.andrearodriguez.androidchat.contactslist.ContactListPresenterImpl;
 import com.example.andrearodriguez.androidchat.contactslist.ui.adapters.ContactListAdapter;

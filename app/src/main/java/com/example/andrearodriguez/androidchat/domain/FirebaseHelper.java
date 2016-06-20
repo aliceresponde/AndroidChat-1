@@ -76,7 +76,7 @@ public class FirebaseHelper {
         String keyReceiver = receiver.replace(".","_");
 
         String keyChat = keySender + SEPARATOR + keyReceiver;
-        if(keySender.compareTo(keyReceiver)> 0){
+        if(keySender.compareTo(keyReceiver) > 0){
             keyChat = keyReceiver + SEPARATOR + keySender;
         }
         return dataReference.getRoot().child(CHAT_PATH).child(keyChat);

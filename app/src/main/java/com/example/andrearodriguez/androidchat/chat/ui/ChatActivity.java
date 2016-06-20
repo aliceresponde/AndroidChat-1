@@ -84,6 +84,8 @@ public class ChatActivity extends AppCompatActivity implements ChatView {
         ImageLoader imageLoader =  new GlideImageLoader(getApplicationContext());
         imageLoader.load(imgAvatar , AvatarHelper.getAvatarUL(recipient));
 
+        setSupportActionBar(toolbar);
+
     }
     private void setupRecyclerView() {
         messagesRecyclerView.setLayoutManager( new LinearLayoutManager(this));
@@ -130,6 +132,8 @@ public class ChatActivity extends AppCompatActivity implements ChatView {
 
     @OnClick(R.id.btnSendMessage)
     public void onClick() {
+        presenter.sendMessage(inputMessage.getText().toString());
+        inputMessage.setText("");
     }
 
     @Override

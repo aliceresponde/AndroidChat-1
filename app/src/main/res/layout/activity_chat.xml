@@ -11,7 +11,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_scroll_flags="scroll|enterAlways"
+        app:layout_scrollFlags="scroll|enterAlways"
         android:theme="@style/AppTheme.AppBarOverlay"
         >
 
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popuoTheme="@style/AppTheme.PopupOverlay" >
+            app:popupTheme="@style/AppTheme.PopUpOverLay" >
 
             <include layout="@layout/contact_item_row_layout"/>
 

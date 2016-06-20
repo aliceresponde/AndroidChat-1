@@ -9,10 +9,11 @@ import com.example.andrearodriguez.androidchat.chat.events.ChatEvent;
 public interface ChatPresenter {
     void onCreate();
 
-    void onPasuse();
     void onResume();
 
     void onPause();
+
+    void onDestroy();
 
     void setChatRecipient(String recipient);
     void sendMessage(String msg);

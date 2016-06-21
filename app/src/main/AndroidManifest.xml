@@ -20,14 +20,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".contactslist.ui.ContactListActivity"
             android:label="@string/contactslist.title"
-            android:theme="@style/AppTheme.NoAcionBar"/>
-
-        <activity android:name=".chat.ui.ChatActivity"
-            android:theme="@style/AppTheme.NoAcionBar"/>
+            android:theme="@style/AppTheme.NoAcionBar" />
+        <activity
+            android:name=".chat.ui.ChatActivity"
+            android:theme="@style/AppTheme.NoAcionBar" />
+        <activity android:name=".signup.ui.SignUpActivity"></activity>
     </application>
 
 </manifest>
